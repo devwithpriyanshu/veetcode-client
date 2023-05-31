@@ -1,1 +1,1 @@
-export const backendUrl = "http://localhost:1337";
+export const backendUrl = "https://zeetcode-server.vercel.app/";
