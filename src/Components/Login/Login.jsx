@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div id="login" className='flex-col'>
@@ -40,7 +41,7 @@ const Login = () => {
 
           const json = await response.json();
           localStorage.setItem("token", json.token)
-          window.location.href = '/problemset/all/'
+          navigate('/problemset/all/');
           
         }}>Login</button> 
       </div>
