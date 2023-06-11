@@ -19,6 +19,24 @@ const AllProblemsPage = () => {
   useEffect(() => {
     init()
   }, []);
+  problemModel.find().then(
+    (err, problems) => {
+      if (err) {
+        res.status(500).send(err);
+        }
+        else {
+          const filteredProblems = problems.map((x) => ({
+            problemId: x.problemId,
+            difficulty: x.difficulty,
+            acceptance: x.acceptance,
+            title: x.title,
+          })
+          
+  )
+        }
+        
+      }
+  )
 
   return (
     <div id="allproblems">
@@ -31,7 +49,7 @@ const AllProblemsPage = () => {
             <th>Acceptance</th>
           </tr>
 
-          {problems.map((prob,index) => (
+          {filteredProblems.map((prob,index) => (
             <tr>
               <Link to={`/problems/:${prob.problemId}`}>
                 <td>{prob.title}</td>
