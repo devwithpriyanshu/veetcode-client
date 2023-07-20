@@ -19,24 +19,24 @@ const AllProblemsPage = () => {
   useEffect(() => {
     init()
   }, []);
-  problemModel.find().then(
-    (err, problems) => {
-      if (err) {
-        res.status(500).send(err);
-        }
-        else {
-          const filteredProblems = problems.map((x) => ({
-            problemId: x.problemId,
-            difficulty: x.difficulty,
-            acceptance: x.acceptance,
-            title: x.title,
-          })
+  // problemModel.find().then(
+  //   (err, problems) => {
+  //     if (err) {
+  //       res.status(500).send(err);
+  //       }
+  //       else {
+  //         const filteredProblems = problems.map((x) => ({
+  //           problemId: x.problemId,
+  //           difficulty: x.difficulty,
+  //           acceptance: x.acceptance,
+  //           title: x.title,
+  //         })
           
-  )
-        }
+  // )
+  //       }
         
-      }
-  )
+  //     }
+  // )
 
   return (
     <div id="allproblems">
@@ -44,18 +44,20 @@ const AllProblemsPage = () => {
         <tbody>
 
           <tr>
+            <th>Id</th>
             <th>Title</th>
             <th>Difficulty</th>
             <th>Acceptance</th>
           </tr>
 
-          {filteredProblems.map((prob,index) => (
-            <tr>
+          {problems.map((prob) => (
+            <tr key={prob.problemId}>
+              <td className={`${prob.problemId}`} >{prob.problemId}</td>
               <Link to={`/problems/:${prob.problemId}`}>
                 <td>{prob.title}</td>
               </Link>
               <td className={`${prob.difficulty}`} >{prob.difficulty}</td>
-              <td className={`${prob.difficulty}`} >{prob.acceptance}</td>
+              <td>{prob.acceptance}</td>
             </tr>
           ))}
 

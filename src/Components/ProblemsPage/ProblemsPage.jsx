@@ -18,7 +18,8 @@ const ProblemsPage = () => {
       });
 
       const json = await response.json();
-      setProblem(json.problem);
+      const problem = json.problem
+      setProblem(...problem);
     }
 
   useEffect(() => {
@@ -45,7 +46,8 @@ const ProblemsPage = () => {
         problem? (
           <div id="problempage" className='flex-row'>
             <div className="ques">
-              <h1>{problem.title}</h1>
+              <h2>{problem.id}. {problem.title}</h2>
+              <h3 className={`${problem.difficulty}`}>{problem.difficulty}</h3>
               <h5>Description</h5>
               <p>{problem.description}</p>
               <code>Input : {problem.exampleIn}</code>
