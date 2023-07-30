@@ -36,12 +36,18 @@ const Login = () => {
               email: email,
               password: password
             })
-          
+         
           });
-
+          
           const json = await response.json();
+          if(json.token){
+            alert('login successful');
+            navigate('/problemset/all/');
+          }else{
+            alert('login failed');
+          }
           localStorage.setItem("token", json.token)
-          navigate('/problemset/all/');
+          
           
         }}>Login</button> 
       </div>

@@ -58,9 +58,11 @@ const ProblemsPage = () => {
               <div className='code-form'>
                 <textarea onChange={(e) => setSubmission(e.target.value)} name="SolvedCode" onKeyDown={ (event) => handleKey(event) }></textarea>
                 <button type="submit" id="submit" onClick={async () => {
+                
                   const response = await fetch(`${backendUrl}/submission`, {
                     method: "POST",
                     headers: {
+                      "Content-Type": "application/json",
                       "authorization": localStorage.getItem("token")
                     },
                     body: JSON.stringify({
@@ -69,8 +71,8 @@ const ProblemsPage = () => {
                     })
                   });
 
-                  const json = await response.json();
-                  console.log(json);
+                  // const json = await response.json();
+                  // console.log(json);
 
                 }}>SubmitCode</button>
               </div>

@@ -11,9 +11,9 @@ const Navbar = () => {
   
   useEffect(() => {
     const token = localStorage.getItem('token');
-      setIsLoggedIn(!!token);  
+      setIsLoggedIn(!!token );  
       setIsLoading(false);
-  }, []);
+  },[]);
 
   return (
     <div id='navbar-main' className='flex-row'>

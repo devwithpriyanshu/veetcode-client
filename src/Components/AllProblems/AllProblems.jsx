@@ -47,7 +47,7 @@ const AllProblemsPage = () => {
             <th>Id</th>
             <th>Title</th>
             <th>Difficulty</th>
-            <th>Acceptance</th>
+            {/* <th>Acceptance</th> */}
           </tr>
 
           {problems.map((prob) => (
@@ -57,7 +57,7 @@ const AllProblemsPage = () => {
                 <td>{prob.title}</td>
               </Link>
               <td className={`${prob.difficulty}`} >{prob.difficulty}</td>
-              <td>{prob.acceptance}</td>
+              {/* <td>{prob.acceptance}</td> */}
             </tr>
           ))}
 
