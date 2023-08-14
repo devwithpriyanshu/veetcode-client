@@ -1,10 +1,29 @@
 #problempage {
     min-height: 91vh;
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
+    
+}
+.desc{
+    width:50%;
+    margin: 0;
+    padding:2rem;
+}
+.ques{
+    min-height: 50%;
+    justify-content: flex-start;
+
+}
+code{
+    background-color: #eee;
+}
+.submissions{
+    max-height:50%;
 }
 
-.ques , .code {
+
+.code {
     width: 50%;
     min-height: 65vh;
     margin: 0;
@@ -13,6 +32,7 @@
     justify-content: flex-start;
     padding: 2rem;
 }
+
 
 .code-form {
     height: 70vh;

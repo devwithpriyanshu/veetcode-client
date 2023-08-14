@@ -7,11 +7,23 @@ import { Link } from "react-router-dom";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   return (
     <div id='signup' className='flex-col'>
       <h1>Signup</h1>
       <div className='signup-form'>
+        <div className='subform'>
+          <label htmlFor='username'>Username: </label>
+          <input
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+            type='text'
+            name='username'
+            placeholder='Your Username'
+          />
+        </div>
         <div className='subform'>
           <label htmlFor='email'>Email: </label>
           <input
@@ -43,6 +55,7 @@ const Signup = () => {
                 "Content-Type": "application/json"
               },
               body: JSON.stringify({
+                username: username,
                 email: email,
                 password: password,
               }),
@@ -53,7 +66,7 @@ const Signup = () => {
         >
           SIGNUP
         </button>
-        <Link to="/Login">Already Signed In ? Log In</Link>
+        <Link to="/Login" style={{textAlign:"center",margin:"auto"}}>Already Signed In ? Log In</Link>
       </div>
     </div>
   );
@@ -61,4 +74,3 @@ const Signup = () => {
 
 export default Signup;
 
-// neetcode1@gmail.com
