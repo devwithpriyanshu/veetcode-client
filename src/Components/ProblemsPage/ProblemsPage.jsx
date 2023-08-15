@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
-import Select from "react-dropdown-select";
+
 
 import "./ProblemsPage.css"
 import {backendUrl} from "../../constants.js";
