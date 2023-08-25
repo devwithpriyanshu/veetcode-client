@@ -3,11 +3,13 @@ import Login from "../Login/Login"
 import "./Signup.css";
 import { backendUrl } from "../../constants.js";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const navigate = useNavigate(); 
 
   return (
     <div id='signup' className='flex-col'>
@@ -60,6 +62,7 @@ const Signup = () => {
                 password: password,
               }),
               });
+              navigate('/login')
               const json =  await response.json();
               console.log(json);
           }}

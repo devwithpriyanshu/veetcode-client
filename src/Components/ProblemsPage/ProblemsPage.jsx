@@ -13,7 +13,7 @@ const ProblemsPage = () => {
   const [problem, setProblem] = useState(null);
   const [submission, setSubmission] = useState("");
   const [subs, setSubs] = useState(null);
-  const [language, setLanguage] = useState();
+  const [language, setLanguage] = useState("");
   let examples = [];
   
 
@@ -94,8 +94,8 @@ const ProblemsPage = () => {
             <th>Submission Time</th>
           </tr>
 
-          { subs.map((sub) => (
-            <tr >
+          { subs.map((sub,index) => (
+            <tr key={index}>
               <td> {sub.username}</td>  
                 <td> {sub.language} </td>
               <td> {sub.result} </td>
@@ -125,9 +125,17 @@ const ProblemsPage = () => {
                   <option value="rust">Rust</option>
                 </select>
                 <div className='code-form'>
-                  <textarea onChange={(e) => setSubmission(e.target.value)} name="SolvedCode" onKeyDown={ (event) => handleKey(event) }></textarea>
+                  <textarea  onChange={(e) => setSubmission(e.target.value)} name="SolvedCode" onKeyDown={ (event) => handleKey(event) }></textarea>
                   <button type="submit" id="submit" onClick={async () => {
-  
+                    
+                    if(language.length === 0){
+                      alert("Please select a language");
+                      return;
+                    }
+                    if(submission.length === 0){
+                      alert("Please enter code");
+                      return;
+                    }
                     const response = await fetch(`${backendUrl}/submission`, {
                       method: "POST",
                       headers: {

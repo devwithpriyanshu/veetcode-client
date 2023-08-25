@@ -29,7 +29,7 @@ const Login = () => {
 
         <div className='subform'>
           <label htmlFor="password">Password: </label>
-          <input onChange={(e) => setPassword(e.target.value)} type="text" name='password' placeholder='Your Password' />
+          <input onChange={(e) => setPassword(e.target.value)} type="password" name='password' placeholder='Your Password' />
         </div>
 
         <button type="submit" onClick={async (e) => {
